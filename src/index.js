@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import "./index.css";
 import App from "./App";
 
+// initiliaze react query client
 const client = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
