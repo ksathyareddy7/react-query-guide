@@ -3,9 +3,7 @@ import React, { useEffect, useReducer } from "react";
 import { useQuery, useQueryClient } from "react-query";
 
 async function fetchPosts() {
-  const posts = await (
-    await axios.get(`https://jsonplaceholder.typicode.com/posts`)
-  ).data;
+  const posts = await (await axios.get(`http://localhost:3005/posts`)).data;
   return posts;
 }
 
@@ -46,7 +44,9 @@ export function LESSON_19() {
 
   return (
     <div>
-      <button onClick={toggle}>{show ? "Hide posts" : "Show"}</button>
+      <button className="btn btn-primary mx-2  mb-4" onClick={toggle}>
+        {show ? "Hide posts" : "Show"}
+      </button>
       {show ? <Posts /> : null}
     </div>
   );

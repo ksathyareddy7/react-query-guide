@@ -2,6 +2,6 @@
 
 ```
 1. npm install
-2. npm run server db.json
+2. npm run server
 3. npm start
 ```

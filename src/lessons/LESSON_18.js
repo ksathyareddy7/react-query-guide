@@ -6,9 +6,7 @@ function Posts({ subkey }) {
   const postsQuery = useQuery(
     ["posts", subkey],
     async () => {
-      const posts = await (
-        await axios.get(`https://jsonplaceholder.typicode.com/posts`)
-      ).data;
+      const posts = await (await axios.get(`http://localhost:3005/posts`)).data;
       return posts;
     },
     {
@@ -41,16 +39,28 @@ export function LESSON_18() {
 
   return (
     <div>
-      <button onClick={() => queryClient.invalidateQueries("posts")}>
+      <button
+        className="btn btn-primary mx-2  mb-4"
+        onClick={() => queryClient.invalidateQueries("posts")}
+      >
         Invalidate Queries
       </button>
-      <button onClick={() => queryClient.invalidateQueries(["posts", "A"])}>
+      <button
+        className="btn btn-primary mx-2  mb-4"
+        onClick={() => queryClient.invalidateQueries(["posts", "A"])}
+      >
         Invalidate A
       </button>
-      <button onClick={() => queryClient.invalidateQueries(["posts", "B"])}>
+      <button
+        className="btn btn-primary mx-2  mb-4"
+        onClick={() => queryClient.invalidateQueries(["posts", "B"])}
+      >
         Invalidate B
       </button>
-      <button onClick={() => queryClient.invalidateQueries(["posts", "C"])}>
+      <button
+        className="btn btn-primary mx-2  mb-4"
+        onClick={() => queryClient.invalidateQueries(["posts", "C"])}
+      >
         Invalidate C
       </button>
 

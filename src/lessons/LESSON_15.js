@@ -4,9 +4,7 @@ import { useQuery } from "react-query";
 import axios from "axios";
 
 const fetchPosts = async () => {
-  const posts = await (
-    await axios.get(`https://jsonplaceholder.typicode.com/posts`)
-  ).data;
+  const posts = await (await axios.get(`http://localhost:3005/posts`)).data;
 
   return posts;
 };
@@ -61,7 +59,7 @@ function Post({ postId, setPostId }) {
   const postQuery = useQuery(["post", postId], async () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     return axios
-      .get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+      .get(`http://localhost:3005/posts/${postId}`)
       .then((res) => res.data);
   });
   return (

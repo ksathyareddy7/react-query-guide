@@ -20,9 +20,7 @@ function MyPosts() {
     "posts",
     () => {
       return axios
-        .get(
-          `https://jsonplaceholder.typicode.com/posts?userId=${userQuery.data.id}`
-        )
+        .get(`http://localhost:3005/posts?userId=${userQuery.data.id}`)
         .then((res) => res.data);
     },
     {

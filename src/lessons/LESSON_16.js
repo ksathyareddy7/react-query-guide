@@ -7,9 +7,7 @@ export function LESSON_16() {
   const postsQuery = useQuery(
     "posts",
     async () => {
-      const posts = await (
-        await axios.get(`https://jsonplaceholder.typicode.com/posts`)
-      ).data;
+      const posts = await (await axios.get(`http://localhost:3005/posts`)).data;
       return posts;
     },
     {

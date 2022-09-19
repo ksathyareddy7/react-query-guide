@@ -4,15 +4,13 @@ import { useQuery, useQueryClient } from "react-query";
 import axios from "axios";
 
 async function fetchPosts() {
-  const posts = await (
-    await axios.get(`https://jsonplaceholder.typicode.com/posts`)
-  ).data;
+  const posts = await (await axios.get(`http://localhost:3005/posts`)).data;
   return posts;
 }
 
 async function fetechPost(postId) {
   return axios
-    .get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+    .get(`http://localhost:3005/posts/${postId}`)
     .then((res) => res.data);
 }
 

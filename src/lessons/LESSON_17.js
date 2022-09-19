@@ -6,9 +6,7 @@ function Posts() {
   const postsQuery = useQuery(
     "posts",
     async () => {
-      const posts = await (
-        await axios.get(`https://jsonplaceholder.typicode.com/posts`)
-      ).data;
+      const posts = await (await axios.get(`http://localhost:3005/posts`)).data;
       return posts;
     },
     {
@@ -47,10 +45,15 @@ export function LESSON_17() {
   return (
     <div>
       <h1>Posts </h1>
-      <button onClick={() => setIsHidden((val) => !val)}>
+      <button
+        className="btn btn-primary mx-2  mb-4"
+        onClick={() => setIsHidden((val) => !val)}
+      >
         {isHidden ? "Show" : "Hide"}
       </button>
-      <button onClick={invalidateQuery}>Invalidate Query</button>
+      <button className="btn btn-primary mx-2 mb-4" onClick={invalidateQuery}>
+        Invalidate Query
+      </button>
       <div>{isHidden ? null : <Posts />}</div>
     </div>
   );

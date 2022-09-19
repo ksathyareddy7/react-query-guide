@@ -16,11 +16,14 @@ export function CreatePost({ onSubmit, buttonText = "Submit" }) {
       <form onSubmit={handleSubmit}>
         <p>Title</p>
         <input
+          className="form-control"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="title"
         />
-        <button type="submit">{buttonText}</button>
+        <button className="btn btn-primary mt-3" type="submit">
+          {buttonText}
+        </button>
       </form>
     </div>
   );

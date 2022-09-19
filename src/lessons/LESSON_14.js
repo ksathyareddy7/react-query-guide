@@ -8,9 +8,7 @@ function Posts({ setPostId }) {
   const queryClient = useQueryClient();
 
   const postsQuery = useQuery("posts", async () => {
-    const posts = await (
-      await axios.get(`https://jsonplaceholder.typicode.com/posts`)
-    ).data;
+    const posts = await (await axios.get(`http://localhost:3005/posts`)).data;
 
     /**
      * set each post data into cache to fetch it if required by other queries.
@@ -50,7 +48,7 @@ function Post({ postId, setPostId }) {
   const postQuery = useQuery(["post", postId], async () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     return axios
-      .get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+      .get(`http://localhost:3005/posts/${postId}`)
       .then((res) => res.data);
   });
   return (

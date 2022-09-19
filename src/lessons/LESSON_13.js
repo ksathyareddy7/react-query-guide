@@ -5,9 +5,7 @@ import axios from "axios";
 
 function Posts({ setPostId }) {
   const postsQuery = useQuery("posts", () => {
-    return axios
-      .get(`https://jsonplaceholder.typicode.com/posts`)
-      .then((res) => res.data);
+    return axios.get(`http://localhost:3005/posts`).then((res) => res.data);
   });
 
   return (
@@ -47,7 +45,7 @@ function Post({ postId, setPostId }) {
     async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       return axios
-        .get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+        .get(`http://localhost:3005/posts/${postId}`)
         .then((res) => res.data);
     },
     {
